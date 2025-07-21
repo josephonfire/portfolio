@@ -233,7 +233,7 @@ const skills = [
                 <span class="text-purple-300 font-medium"
                   >Frontend Development</span
                 >
-                <span class="text-white font-semibold">11 meses</span>
+                <span class="text-white font-semibold">11 months</span>
               </div>
               <div
                 class="flex justify-between items-center p-3 sm:p-4 bg-black/20 rounded-xl"
@@ -241,13 +241,13 @@ const skills = [
                 <span class="text-purple-300 font-medium"
                   >Backend Development</span
                 >
-                <span class="text-white font-semibold">7 meses</span>
+                <span class="text-white font-semibold">7 months</span>
               </div>
               <div
                 class="flex justify-between items-center p-3 sm:p-4 bg-black/20 rounded-xl"
               >
                 <span class="text-purple-300 font-medium">Design UI/UX</span>
-                <span class="text-white font-semibold">11 meses</span>
+                <span class="text-white font-semibold">11 months</span>
               </div>
             </div>
           </div>
