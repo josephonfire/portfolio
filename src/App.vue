@@ -57,7 +57,7 @@ const skills = [
         <p
           class="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed"
         >
-          Full Stack Developer based in Lisbon Portu with a passion for learning, growing, and
+          Full Stack Developer based in Portugal with a passion for learning, growing, and
           creating innovative solutions.
         </p>
       </div>
@@ -84,26 +84,35 @@ const skills = [
             </svg>
           </span>
         </button>
-        <button
-          class="group border-2 border-purple-600 text-purple-300 hover:bg-purple-600/20 px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm w-full md:w-auto"
+        <a
+          href="/cv/cv-jose-rodrigues.pdf"
+          download
+          class="group border-2 border-purple-600 text-purple-300 hover:bg-purple-600/20 px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm w-full md:w-auto flex items-center gap-2 justify-center"
         >
-          <span class="flex items-center gap-2 justify-center">
-            Download CV
-            <svg
-              class="w-5 h-5 group-hover:translate-y-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              ></path>
-            </svg>
-          </span>
-        </button>
+          Download CV
+          <svg
+            class="w-5 h-5 group-hover:translate-y-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            ></path>
+          </svg>
+        </a>
+      </div>
+      <!-- Social Icons -->
+      <div class="flex justify-center gap-4 mt-40 mb-2">
+        <a href="https://www.linkedin.com/in/jos%C3%A9-pedro-rodrigues-150483365/" target="_blank" rel="noopener" class="group bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-full p-3 flex items-center justify-center w-20 h-16 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+          <img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn" class="h-7 transition-transform duration-500 group-hover:scale-125 group-hover:brightness-125 group-hover:translate-x-2 group-hover:-translate-y-2" />
+        </a>
+        <a href="https://github.com/josephonfire" target="_blank" rel="noopener" class="group bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-full p-3 flex items-center justify-center w-20 h-16 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+          <img src="https://skillicons.dev/icons?i=github" alt="GitHub" class="h-7 transition-transform duration-500 group-hover:scale-125 group-hover:brightness-125 group-hover:translate-x-2 group-hover:-translate-y-2" />
+        </a>
       </div>
     </section>
 
@@ -116,10 +125,7 @@ const skills = [
           >
           <h2
             class="text-xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent mt-2 sm:mt-4 mb-4 sm:mb-6 transition-all duration-500 animate-gradient-x"
-            v-animateonscroll="{
-              enterClass: 'animate-enter fade-in-10 animate-duration-1000',
-              leaveClass: 'animate-leave fade-out-0',
-            }"
+            v-animateonscroll="{ enterClass: 'fadeinup', enterDelay: 0 }"
           >
             Skills & Technologies
           </h2>
@@ -139,9 +145,10 @@ const skills = [
           class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-12 md:mb-16 max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto transition-all duration-500"
         >
           <div
-            v-for="skill in skills"
+            v-for="(skill, i) in skills"
             :key="skill.name"
-            class="group bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 transform hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:shadow-pink-400/40 fade-in-up-skill"
+            class="group bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 transform hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:shadow-pink-400/40 fadeinup"
+            :style="`animation-delay: ${i * 160}ms; animation-duration: 1.2s`"
           >
             <img
               :src="`https://skillicons.dev/icons?i=${skill.icon}`"
