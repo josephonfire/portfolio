@@ -28,9 +28,6 @@ Welcome to my portfolio! This project was developed to showcase my skills, proje
    ```
 4. Access at [http://localhost:5173](http://localhost:5173)
 
-## 🌐 Deploy
-You can easily deploy this project on Vercel, Netlify, or GitHub Pages. Just point to the main branch and use the default Vite build command.
-
 ## 📁 Structure
 - `src/` - Main source code
 - `public/` - Images, fonts, CV, and logo
