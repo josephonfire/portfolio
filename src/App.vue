@@ -2,6 +2,14 @@
 import VioletStorm from "./components/VioletStorm.vue";
 import { TransitionGroup } from "vue";
 import Button from "primevue/button";
+import { onMounted } from 'vue';
+
+function scrollToFooter() {
+  const footer = document.querySelector('footer');
+  if (footer) {
+    footer.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 
 const skills = [
   { name: "JavaScript", icon: "js" },
@@ -28,17 +36,17 @@ const skills = [
     <!-- Hero Section -->
     <section
       id="home"
-      class="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-16 relative overflow-hidden smooth-ease parallax-section"
+      class="min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 md:px-16 lg:px-32 relative overflow-hidden smooth-ease parallax-section transition-all duration-500"
     >
       <div class="text-center mb-8 sm:mb-12 relative z-10">
         <div class="mb-4 sm:mb-8">
           <span
-            class="text-purple-400 text-base sm:text-lg md:text-xl font-medium tracking-wider"
+            class="text-purple-400 text-sm sm:text-lg md:text-xl font-medium tracking-wider"
             >WELCOME TO MY PORTFOLIO</span
           >
         </div>
         <h1
-          class="text-4xl sm:text-6xl md:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight"
+          class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight"
         >
           Hello, I'm <br />
           <span
@@ -47,16 +55,17 @@ const skills = [
           >
         </h1>
         <p
-          class="text-base sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          class="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed"
         >
-          Full Stack Developer with a passion for learning, growing, and
+          Full Stack Developer based in Lisbon Portu with a passion for learning, growing, and
           creating innovative solutions.
         </p>
       </div>
 
-      <div class="flex justify-center flex-col gap-3 sm:gap-4 md:flex-row md:gap-6 relative z-10 w-full max-w-md md:max-w-none">
+      <div class="flex flex-col md:flex-row justify-center gap-3 sm:gap-4 md:gap-6 relative z-10 w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl">
         <button
           class="group bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg w-full md:w-auto"
+          @click="scrollToFooter"
         >
           <span class="flex items-center gap-2 justify-center">
             Get in touch
@@ -99,14 +108,14 @@ const skills = [
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-12 sm:py-16 md:py-20 relative smooth-ease parallax-section">
-      <div class="max-w-6xl mx-auto px-2 sm:px-4 md:px-8">
+    <section id="skills" class="py-12 sm:py-16 md:py-20 relative smooth-ease parallax-section transition-all duration-500">
+      <div class="max-w-6xl mx-auto px-2 sm:px-4 md:px-8 lg:px-16">
         <div class="text-center mb-10 sm:mb-16">
           <span class="text-purple-400 text-base sm:text-lg font-medium tracking-wider"
             >MY EXPERTISE</span
           >
           <h2
-            class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mt-2 sm:mt-4 mb-4 sm:mb-6"
+            class="text-xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent mt-2 sm:mt-4 mb-4 sm:mb-6 transition-all duration-500 animate-gradient-x"
             v-animateonscroll="{
               enterClass: 'animate-enter fade-in-10 animate-duration-1000',
               leaveClass: 'animate-leave fade-out-0',
@@ -115,7 +124,7 @@ const skills = [
             Skills & Technologies
           </h2>
           <p
-            class="text-base sm:text-xl md:text-2xl text-gray-300 py-2 sm:py-3 text-center max-w-4xl mx-auto leading-relaxed"
+            class="text-sm sm:text-lg md:text-xl lg:text-2xl text-gray-400 py-2 sm:py-3 text-center max-w-2xl sm:max-w-3xl md:max-w-4xl mx-auto leading-relaxed"
           >
             As a self-taught developer, and now graduated in a Bootcamp, I have
             a strong foundation in frontend and backend development. I'm always
@@ -127,17 +136,17 @@ const skills = [
 
         <!-- Skills Icons -->
         <div
-          class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 sm:gap-6 mb-10 sm:mb-16 max-w-5xl mx-auto"
+          class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-12 md:mb-16 max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-5xl mx-auto transition-all duration-500"
         >
           <div
             v-for="skill in skills"
             :key="skill.name"
-            class="group bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl"
+            class="group bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 transform hover:scale-110 hover:rotate-3 hover:shadow-2xl hover:shadow-pink-400/40 fade-in-up-skill"
           >
             <img
               :src="`https://skillicons.dev/icons?i=${skill.icon}`"
               :alt="skill.name"
-              class="h-6 sm:h-8 md:h-12 transition-transform duration-300 group-hover:scale-110"
+              class="h-6 sm:h-8 md:h-12 transition-transform duration-500 group-hover:scale-125 group-hover:brightness-125"
             />
           </div>
         </div>
@@ -145,14 +154,14 @@ const skills = [
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-12 sm:py-16 md:py-20 relative smooth-ease parallax-section">
-      <div class="max-w-6xl mx-auto px-2 sm:px-4 md:px-8">
+    <section id="about" class="py-12 sm:py-16 md:py-20 relative smooth-ease parallax-section transition-all duration-500">
+      <div class="max-w-6xl mx-auto px-2 sm:px-4 md:px-8 lg:px-16">
         <div class="text-center mb-10 sm:mb-16">
           <span class="text-purple-400 text-base sm:text-lg font-medium tracking-wider"
             >ABOUT ME</span
           >
           <h2
-            class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mt-2 sm:mt-4 mb-4 sm:mb-6"
+            class="text-xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent mt-2 sm:mt-4 mb-4 sm:mb-6 transition-all duration-500 animate-gradient-x"
             v-animateonscroll="{
               enterClass: 'animate-enter fade-in-10 animate-duration-1000',
               leaveClass: 'animate-leave fade-out-0',
@@ -162,7 +171,7 @@ const skills = [
           </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
           <div
             class="space-y-4 sm:space-y-6"
             v-animateonscroll="{ enterClass: 'fadeinleft', enterDelay: 200 }"
@@ -193,7 +202,7 @@ const skills = [
             v-animateonscroll="{ enterClass: 'fadeinright', enterDelay: 400 }"
           >
             <h3
-              class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3"
+              class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3"
             >
               <svg
                 class="w-5 h-5 sm:w-6 sm:h-6 text-purple-400"
@@ -240,26 +249,26 @@ const skills = [
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-12 sm:py-16 md:py-20 relative smooth-ease parallax-section">
-      <div class="w-full px-2 sm:px-8 md:px-16">
+    <section id="projects" class="py-12 sm:py-16 md:py-20 relative smooth-ease parallax-section transition-all duration-500">
+      <div class="w-full px-2 sm:px-4 md:px-8 lg:px-16">
         <div class="text-center mb-10 sm:mb-16">
           <span class="text-purple-400 text-base sm:text-lg font-medium tracking-wider"
             >MY WORK</span
           >
           <h2
-            class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mt-2 sm:mt-4 mb-4 sm:mb-6"
+            class="text-xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent mt-2 sm:mt-4 mb-4 sm:mb-6 transition-all duration-500 animate-gradient-x"
             v-animateonscroll="{ enterClass: 'fadeinup', enterDelay: 0 }"
           >
             Featured Projects
           </h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-[98%] sm:max-w-[90%] mx-auto">
+        <div class="flex flex-col md:flex-row justify-center gap-4 sm:gap-6 w-full max-w-[98%] sm:max-w-[90%] mx-auto">
           <div
             class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
             v-animateonscroll="{ enterClass: 'fadeinup', enterDelay: 200 }"
           >
             <div
-              class="h-40 sm:h-64 bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center relative overflow-hidden group"
+              class="bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center relative overflow-hidden group aspect-[1905/903] w-full"
             >
               <!-- Magic Deck Builder Image -->
               <div
@@ -268,7 +277,7 @@ const skills = [
               <img
                 src="/images/magic-deck-builder.png"
                 alt="Magic Deck Builder Interface"
-                class="w-full h-full object-cover group-hover:scale-100 transition-transform duration-300"
+                class="w-full h-full object-cover transition-transform duration-300"
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
               />
               <div
@@ -358,74 +367,35 @@ const skills = [
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-12 sm:py-16 md:py-20 bg-black/40 smooth-ease parallax-section">
-      <div class="max-w-4xl mx-auto px-2 sm:px-4 md:px-8">
+    <section id="contact" class="py-12 sm:py-16 md:py-20 smooth-ease parallax-section transition-all duration-500">
+      <div class="max-w-4xl mx-auto px-2 sm:px-4 md:px-8 lg:px-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-2xl border border-purple-500/30 py-10 sm:py-18">
         <h2
-          class="text-2xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-10 sm:mb-16"
+          class="text-center text-gray-300 mb-6 sm:mb-8 text-xl sm:text-3xl md:text-5xl font-bold mt-2 sm:mt-4 mb-4 sm:mb-6 bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
           v-animateonscroll="{ enterClass: 'fadeinup', enterDelay: 0 }"
         >
-          Contact
+          Let's work <span class="text-center text-gray-300 mb-6 sm:mb-8 text-xl sm:text-3xl md:text-5xl font-bold bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 text-transparent"> together!</span>
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div class="md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
           <div
             v-animateonscroll="{ enterClass: 'fadeinleft', enterDelay: 200 }"
           >
-            <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Let's discuss!</h3>
-            <p class="text-gray-300 mb-6 sm:mb-8 text-base sm:text-lg">
-              I'm always open to new opportunities and interesting projects.
-              Contact me!
+            <p class="text-center text-gray-300 mb-6 sm:mb-8 text-base sm:text-lg">
+              I'm always open to talk about code, technology, hobbies, new opportunites and interesting projects to work or collaborate.
+              <br>
+              <br>
+              <p class="text-purple-400 mb-6 sm:mb-8 text-base sm:text-lg">Contact me!</p>
             </p>
-            <div class="space-y-3 sm:space-y-4">
-              <div class="flex items-center space-x-2 sm:space-x-3">
-                <span class="text-purple-400">📧</span>
+              <div class="flex justify-center space-x-2 sm:space-x-3">
                 <span class="text-white text-sm sm:text-base">josephpedroferreira@gmail.com</span>
-              </div>
-              <div class="flex items-center space-x-2 sm:space-x-3">
-                <span class="text-purple-400">📱</span>
-                <span class="text-white text-sm sm:text-base">+351 934 558 677</span>
-              </div>
-              <div class="flex items-center space-x-2 sm:space-x-3">
-                <span class="text-purple-400">📍</span>
-                <span class="text-white text-sm sm:text-base">Lisbon, PT</span>
-              </div>
             </div>
           </div>
-          <div
-            class="bg-purple-600/20 p-4 sm:p-8 rounded-lg border border-purple-500/30"
-            v-animateonscroll="{ enterClass: 'fadeinright', enterDelay: 400 }"
-          >
-            <form class="space-y-3 sm:space-y-4">
-              <input
-                type="text"
-                placeholder="Seu nome"
-                class="w-full p-2 sm:p-3 bg-black/50 border border-purple-500/30 rounded text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none text-sm sm:text-base"
-              />
-              <input
-                type="email"
-                placeholder="Seu email"
-                class="w-full p-2 sm:p-3 bg-black/50 border border-purple-500/30 rounded text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none text-sm sm:text-base"
-              />
-              <textarea
-                placeholder="Sua mensagem"
-                rows="4"
-                class="w-full p-2 sm:p-3 bg-black/50 border border-purple-500/30 rounded text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none text-sm sm:text-base"
-              ></textarea>
-              <button
-                type="submit"
-                class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 sm:py-3 rounded transition-colors text-sm sm:text-base"
-              >
-                Enviar Mensagem
-              </button>
-            </form>
           </div>
         </div>
-      </div>
     </section>
-
     <!-- Footer -->
-    <footer class="py-6 sm:py-8 border-t border-purple-500/20">
-      <div class="max-w-6xl mx-auto px-2 sm:px-4 md:px-8 text-center">
-        <p class="text-gray-400 text-xs sm:text-base">© 2025 José Pedro. All rights reserved.</p>
+    <footer class="py-4 sm:py-6 md:py-8 border-t border-purple-500/20">
+      <div class="max-w-6xl mx-auto px-2 sm:px-4 md:px-8 lg:px-16 text-center">
+        <p class="text-gray-400 text-xs sm:text-sm md:text-base">Thanks for visiting my portfolio!</p>
       </div>
     </footer>
   </VioletStorm>

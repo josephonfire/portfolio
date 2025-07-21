@@ -3,6 +3,8 @@ import PrimeVue from 'primevue/config'
 import AnimateOnScroll from 'primevue/animateonscroll'
 import VueScrollTo from 'vue-scrollto'
 import './style.css'
+// Garante scroll suave globalmente
+import './scroll-smooth.css'
 import App from './App.vue'
 
 const app = createApp(App)

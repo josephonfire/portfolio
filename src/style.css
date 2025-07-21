@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Cal Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -13,12 +13,25 @@
 }
 
 html, body {
+  font-family: "Cal Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
 }
+
+@font-face {
+  font-family: "Cal Sans";
+  src: url("/fonts/CalSans-Regular.ttf") format("truetype");
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  font-display: swap;
+}
+
 
 /* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
@@ -60,6 +73,7 @@ html, body {
 body {
   min-width: 320px;
   min-height: 100vh;
+  font-family: "Cal Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 #app {
@@ -146,4 +160,19 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes fadeInUpSkill {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up-skill {
+  animation: fadeInUpSkill 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
